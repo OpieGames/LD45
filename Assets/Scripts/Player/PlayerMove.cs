@@ -26,6 +26,8 @@ public class PlayerMove : MonoBehaviour
 
         moveVector.y -= Gravity * Time.deltaTime;
 
+        moveVector = Quaternion.Euler(0, 45, 0) * moveVector;
+
         cc.Move(moveVector.normalized * MoveSpeed * Time.deltaTime);
     }
 }
