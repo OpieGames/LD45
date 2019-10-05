@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public float DefaultHealth;
     public float MaxHealth;
+    public float InteractRadius = 1.25f;
+
     private float Health;
 
     void Start()
@@ -21,10 +23,11 @@ public class Player : MonoBehaviour
             Vector3 ourpos = transform.position;
             ourpos.y = 1.0f;
             LayerMask mask = LayerMask.GetMask("Interactable");
-            Collider[] hitCols = Physics.OverlapSphere(ourpos, 1.2f, mask);
+            //TODO: make this a trigger on the player so we can highlight interacatables nearby?
+            Collider[] hitCols = Physics.OverlapSphere(ourpos, InteractRadius, mask);
             foreach (var col in hitCols)
             {
-                Debug.Log(col.name);
+                Debug.Log("interacted: " + col.GetComponent<Item>().NiceName);
             }
         }
     }
@@ -61,5 +64,12 @@ public class Player : MonoBehaviour
         {
             Health = resulthp;
         }
+    }
+
+    private void OnDrawGizmos() {
+        Vector3 ourpos = transform.position;
+        ourpos.y = 1.0f;
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(ourpos, InteractRadius);
     }
 }
