@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (cc.isGrounded)
         {
-            moveVector = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
         }
 
         moveVector.y -= Gravity * Time.deltaTime;
