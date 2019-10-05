@@ -7,16 +7,40 @@ public class Player : MonoBehaviour
     public float DefaultHealth;
     public float MaxHealth;
     public float InteractRadius = 1.25f;
+    public WeaponData CurrentWeapon;
+    public WeaponData DefaultWeapon;
 
     private float Health;
+
+    private GameObject PlayerModel;
 
     void Start()
     {
         Health = DefaultHealth;
+        PlayerModel = GetComponent<PlayerMove>().model;
+        SetWeapon(DefaultWeapon);
     }
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log(PlayerModel.transform.forward);
+
+            LayerMask lm = LayerMask.GetMask("Living");
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, PlayerModel.transform.forward, out hit, CurrentWeapon.Range, lm))
+            {
+                Debug.Log("HIT: " + hit.transform.name);
+                Living living = hit.transform.GetComponent<Living>();
+                if (living)
+                {
+                    Debug.Log("Attacked living: " + living.NiceName);
+                    living.TakeDamage(CurrentWeapon.Damage);
+                }
+            }
+        }
+        
         if (Input.GetButtonDown("Use"))
         {
             Debug.Log("using");
@@ -37,6 +61,18 @@ public class Player : MonoBehaviour
                     Debug.Log("Found object with Interacatable tag but no Item class: " + transform.name);
                 }
             }
+        }
+    }
+
+    public void SetWeapon(WeaponData newWeapon)
+    {
+        if (newWeapon)
+        {
+            CurrentWeapon = newWeapon;
+        }
+        else
+        {
+            CurrentWeapon =  DefaultWeapon;
         }
     }
 

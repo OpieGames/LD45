@@ -24,6 +24,7 @@ public class Living : BaseObject
         {
             Health = 0.0f;
             Debug.Log(transform.name + " dead!");
+            Destroy(gameObject);
         }
         else
         {
