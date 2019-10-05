@@ -27,7 +27,15 @@ public class Player : MonoBehaviour
             Collider[] hitCols = Physics.OverlapSphere(ourpos, InteractRadius, mask);
             foreach (var col in hitCols)
             {
-                Debug.Log("interacted: " + col.GetComponent<Item>().NiceName);
+                Item item = col.GetComponent<Item>();
+                if (item)
+                {
+                    Debug.Log("interacted: " + col.GetComponent<Item>().NiceName);
+                }
+                else
+                {
+                    Debug.Log("Found object with Interacatable tag but no Item class: " + transform.name);
+                }
             }
         }
     }
