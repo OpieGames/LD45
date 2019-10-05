@@ -32,13 +32,32 @@ public class PlayerMove : MonoBehaviour
 
         cc.Move(moveVector.normalized * MoveSpeed * Time.deltaTime);
 
-        // If we're moving, set our model's rotation
-        if (cc.velocity.magnitude > 0.1f)
+        Turning();
+
+        // // If we're moving, set our model's rotation
+        // if (cc.velocity.magnitude > 0.1f)
+        // {
+        //     var rotation = Quaternion.LookRotation(moveVector);
+        //     rotation.x = 0.0f;
+        //     rotation.z = 0.0f;
+        //     model.transform.rotation = rotation;
+        // }
+    }
+
+    void Turning()
+    {
+        Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+        RaycastHit floorHit;
+
+        if(Physics.Raycast (camRay, out floorHit, 99999.9f, LayerMask.GetMask("Floor")))
         {
-            var rotation = Quaternion.LookRotation(moveVector);
-            rotation.x = 0.0f;
-            rotation.z = 0.0f;
-            model.transform.rotation = rotation;
+            Vector3 playerToMouse = floorHit.point - transform.position;
+
+            playerToMouse.y = 0f;
+
+            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+
+            model.transform.rotation = newRotation;
         }
     }
 }
