@@ -7,16 +7,39 @@ public class Player : MonoBehaviour
     public float DefaultHealth;
     public float MaxHealth;
     public float InteractRadius = 1.25f;
+    public float AttackRange = 1.4f;
+    public float AttackDamage = 10.0f;
 
     private float Health;
+
+    private GameObject PlayerModel;
 
     void Start()
     {
         Health = DefaultHealth;
+        PlayerModel = GetComponent<PlayerMove>().model;
     }
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log(PlayerModel.transform.forward);
+
+            LayerMask lm = LayerMask.GetMask("Living");
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, PlayerModel.transform.forward, out hit, AttackRange, lm))
+            {
+                Debug.Log("HIT: " + hit.transform.name);
+                Living living = hit.transform.GetComponent<Living>();
+                if (living)
+                {
+                    Debug.Log("Attacked living: " + living.NiceName);
+                    living.TakeDamage(AttackDamage);
+                }
+            }
+        }
+        
         if (Input.GetButtonDown("Use"))
         {
             Debug.Log("using");
