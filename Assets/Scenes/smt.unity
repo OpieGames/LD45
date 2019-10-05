@@ -312,6 +312,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NiceName: stupid chicken
   StartingHealth: 20
+--- !u!65 &194842265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194842263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61694497, y: 1.4861112, z: 1}
+  m_Center: {x: -0.01656726, y: 0.7430556, z: 0}
 --- !u!1 &204517598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1086,7 @@ Transform:
   - {fileID: 1600590486}
   - {fileID: 1715430555}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600590485
 GameObject:
