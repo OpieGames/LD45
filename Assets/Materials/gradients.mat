@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tree
+  m_Name: gradients
   m_Shader: {fileID: -6465566751694194690, guid: 2155c388f223ff04980469a17b69ab1d,
     type: 3}
   m_ShaderKeywords: 
