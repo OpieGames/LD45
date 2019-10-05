@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NiceName: Fists
   Damage: 10
-  Range: 2.8
+  Range: 1.8
   Model: {fileID: 0}
   Material:
-  - {fileID: 0}
   - {fileID: 0}
