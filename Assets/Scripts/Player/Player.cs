@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public struct PlayerInventory
+{
+    public int Eggs;
+    public int Milk;
+    public int Water;
+    public int Flour;
+    public int Bread;
+    public int Coins;
+}
+
 public class Player : MonoBehaviour
 {
     public float DefaultHealth = 100.0f;
@@ -12,6 +22,7 @@ public class Player : MonoBehaviour
     public float InteractRadius = 1.25f;
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
+    public PlayerInventory PlayerInv;
 
     private float Health;
     private float Food;
