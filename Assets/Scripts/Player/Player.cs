@@ -25,17 +25,14 @@ public class Player : MonoBehaviour
     public PlayerInventory PlayerInv;
 
     private float Health;
-    private float Food;
 
     private GameObject PlayerModel;
 
     void Start()
     {
         Health = DefaultHealth;
-        Food = DefaultFood;
         PlayerModel = GetComponent<PlayerMove>().model;
         SetWeapon(DefaultWeapon);
-        InvokeRepeating("FoodTick", 1.0f, 1.0f);
 
         if (CurrentWeapon == null)
         {
@@ -130,36 +127,6 @@ public class Player : MonoBehaviour
         else
         {
             Health = resulthp;
-        }
-    }
-
-    public float GetFood()
-    {
-        return Food;
-    }
-
-    public void EatFood(float amount)
-    {
-        Debug.Log("Player ate food: " + amount);
-        float resultfood = Food + amount;
-        if (resultfood >= MaxFood)
-        {
-            Food = MaxFood;
-        }
-        else
-        {
-            Food = resultfood;
-        }
-    }
-
-    private void FoodTick()
-    {
-        Food--;
-
-        if (Food <= 0)
-        {
-            Debug.Log("Player starving! taking damage");
-            TakeDamage(1);
         }
     }
 

@@ -7,23 +7,30 @@ public class DropPickup : MonoBehaviour
     public enum PlayerItemTypes {Eggs, Milk, Water, Flour, Bread, Coins};
     public PlayerItemTypes DropType;
 
+    [Header("Bounce")]
+    public float rotationSpeed = 10.0f;
+    public float bounceMagnitude = 0.2f;
+    public float bounceSpeed = 5.0f;
+
+    private float yPos;
+
     void Start()
     {
-        
+        yPos = this.transform.position.y;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.Rotate(Vector3.up, 2.0f);
+        this.transform.eulerAngles = new Vector3 (this.transform.eulerAngles.x, this.transform.eulerAngles.y+rotationSpeed*Time.deltaTime, this.transform.eulerAngles.z);
+        this.transform.position = new Vector3 (this.transform.position.x, yPos+(Mathf.Sin(Time.time*bounceSpeed)*bounceMagnitude), this.transform.position.z);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         Player ply = other.transform.GetComponent<Player>();
 
         if (ply)
         {
-            Debug.Log("Picked up " + transform.name);
             
             switch (DropType)
             {
@@ -49,6 +56,7 @@ public class DropPickup : MonoBehaviour
                     break;
             }
 
+            Debug.Log("Picked up " + DropType.ToString());
             Destroy(gameObject);
         }
     }

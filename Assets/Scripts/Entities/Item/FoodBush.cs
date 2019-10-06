@@ -9,7 +9,6 @@ public class FoodBush : Item
 
    public override void Interact(Player player)
    {
-       player.EatFood(FoodRestored);
        Destroy(gameObject);
    }
 }
