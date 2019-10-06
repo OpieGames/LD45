@@ -1,24 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public float DefaultHealth;
-    public float MaxHealth;
+    public float DefaultHealth = 100.0f;
+    public float MaxHealth = 100.0f;
+    public float DefaultFood = 100.0f;
+    public float MaxFood = 100.0f;
     public float InteractRadius = 1.25f;
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
 
+    [Header("UI References")]
+    public TextMeshProUGUI HealthUI;
+    public TextMeshProUGUI FoodUI;
+
     private float Health;
+    private float Food;
 
     private GameObject PlayerModel;
 
     void Start()
     {
         Health = DefaultHealth;
+        Food = DefaultFood;
         PlayerModel = GetComponent<PlayerMove>().model;
         SetWeapon(DefaultWeapon);
+        InvokeRepeating("FoodTick", 1.0f, 1.0f);
+
+        if (HealthUI == null || FoodUI == null)
+        {
+            Debug.LogWarning("Health or Food UI references are null!");
+        }
+
+        if (CurrentWeapon == null)
+        {
+            Debug.LogWarning("CurrentWeapon is null!");
+        }
     }
 
     void Update()
@@ -59,10 +79,15 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Found object with Interacatable tag but no Item class: " + transform.name);
+                    Debug.Log("Found object with Interactable tag but no Item class: " + transform.name);
                 }
             }
         }
+    }
+
+    private void OnGUI() {
+        HealthUI.text = GetHealth().ToString();
+        FoodUI.text = GetFood().ToString();
     }
 
     public void SetWeapon(WeaponData newWeapon)
@@ -108,6 +133,36 @@ public class Player : MonoBehaviour
         else
         {
             Health = resulthp;
+        }
+    }
+
+    public float GetFood()
+    {
+        return Food;
+    }
+
+    public void EatFood(float amount)
+    {
+        Debug.Log("Player ate food: " + amount);
+        float resultfood = Food + amount;
+        if (resultfood >= MaxFood)
+        {
+            Food = MaxFood;
+        }
+        else
+        {
+            Food = resultfood;
+        }
+    }
+
+    private void FoodTick()
+    {
+        Food--;
+
+        if (Food <= 0)
+        {
+            Debug.Log("Player starving! taking damage");
+            TakeDamage(1);
         }
     }
 

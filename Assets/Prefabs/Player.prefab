@@ -128,9 +128,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultHealth: 100
   MaxHealth: 100
+  DefaultFood: 100
+  MaxFood: 100
   InteractRadius: 1.25
   CurrentWeapon: {fileID: 0}
   DefaultWeapon: {fileID: 11400000, guid: 5739870171f3d514f83b72fae306b345, type: 2}
+  HealthUI: {fileID: 0}
+  FoodUI: {fileID: 0}
 --- !u!1 &6292332178564626998
 GameObject:
   m_ObjectHideFlags: 0
