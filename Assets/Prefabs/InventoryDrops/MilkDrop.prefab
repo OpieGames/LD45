@@ -72,6 +72,21 @@ PrefabInstance:
       propertyPath: DropType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4236771862199859878, guid: 1dc3d2c3a1fd8f142aef3dc305f3a56c,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236771862199859878, guid: 1dc3d2c3a1fd8f142aef3dc305f3a56c,
+        type: 3}
+      propertyPath: bounceMagnitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236771862199859878, guid: 1dc3d2c3a1fd8f142aef3dc305f3a56c,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc3d2c3a1fd8f142aef3dc305f3a56c, type: 3}
 --- !u!4 &4014425238549982630 stripped

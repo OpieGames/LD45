@@ -19,9 +19,12 @@ public class PlayerMove : MonoBehaviour
     public float dashStrength = 10.0f;
     public float stoppingDrag = 10.0f;
 
+    public float dashCooldown = 2.5f;
+
     private Vector3 moveVector = Vector3.zero;
     private bool isGrounded;
     private float originalDrag;
+    private float currentDashCooldown = 0.0f;
 
     void Start()
     {
@@ -33,10 +36,12 @@ public class PlayerMove : MonoBehaviour
         rb.freezeRotation = true;
 
         originalDrag = rb.drag;
+
     }
 
     void FixedUpdate()
     {
+       
         // Check against all layers except Player
         int layerMask = ~LayerMask.GetMask("Player");
         // check a short capsule below the player to see if we're grounded
@@ -99,16 +104,21 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (currentDashCooldown > 0.0f) {
+            currentDashCooldown -= Time.deltaTime;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Debug.Log("Jump!");
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (currentDashCooldown <= 0.0f))
         {
             Debug.Log("Dash!");
             rb.AddForce(model.transform.forward * dashStrength, ForceMode.Impulse);
+            currentDashCooldown = dashCooldown;
         }
 
         Turning();
