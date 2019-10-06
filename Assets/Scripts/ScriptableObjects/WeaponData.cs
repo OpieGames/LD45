@@ -15,7 +15,7 @@ public class WeaponData : ScriptableObject
     public float Range;
 
     [Header("Visuals")]
-    public Mesh Model;
-    public Material[] Material;
+    public GameObject Model;
+    public Material[] Materials;
 
 }

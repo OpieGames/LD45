@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
                 if (item)
                 {
                     Debug.Log("interacted: " + col.GetComponent<Item>().NiceName);
+                    col.GetComponent<Item>().Interact(this);
                 }
                 else
                 {
