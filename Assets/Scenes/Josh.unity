@@ -481,6 +481,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4503168798371551605, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503168798371551605, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171715152727688316, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171715152727688316, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171715152727688316, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065438098864876172, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065438098864876172, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028748998385827983, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028748998385827983, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028748998385827983, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
         type: 3}
       propertyPath: m_textInfo.characterCount
