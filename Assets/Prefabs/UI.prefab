@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 8596616939129896883}
   - component: {fileID: 8878187344050568716}
   - component: {fileID: 6222936584786132549}
+  - component: {fileID: 8236716821597329840}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -318,6 +319,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8236716821597329840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016480540681389328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b539b2080d8e4d468cffd1676d03b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 3612500515287682855}
+  FoodUI: {fileID: 1582964837998385604}
 --- !u!1 &2725987305447361898
 GameObject:
   m_ObjectHideFlags: 0

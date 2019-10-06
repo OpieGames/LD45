@@ -13,10 +13,6 @@ public class Player : MonoBehaviour
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
 
-    [Header("UI References")]
-    public TextMeshProUGUI HealthUI;
-    public TextMeshProUGUI FoodUI;
-
     private float Health;
     private float Food;
 
@@ -29,11 +25,6 @@ public class Player : MonoBehaviour
         PlayerModel = GetComponent<PlayerMove>().model;
         SetWeapon(DefaultWeapon);
         InvokeRepeating("FoodTick", 1.0f, 1.0f);
-
-        if (HealthUI == null || FoodUI == null)
-        {
-            Debug.LogWarning("Health or Food UI references are null!");
-        }
 
         if (CurrentWeapon == null)
         {
@@ -83,11 +74,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void OnGUI() {
-        HealthUI.text = GetHealth().ToString();
-        FoodUI.text = GetFood().ToString();
     }
 
     public void SetWeapon(WeaponData newWeapon)
