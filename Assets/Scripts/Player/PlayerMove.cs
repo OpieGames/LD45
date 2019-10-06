@@ -4,33 +4,112 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    CharacterController cc;
+    // CharacterController cc;
+    Rigidbody rb;
+    Collider playerCollider;
 
     public GameObject model;
 
+    // Translational move speed
     public float MoveSpeed;
-    public float Gravity;
-    
+    // public float Gravity;
+    public float acceleration = 1.0f;
+    public float jumpStrength = 10.0f;
+    public float fallMultiplier = 2.5f;
+    public float dashStrength = 10.0f;
+    public float stoppingDrag = 10.0f;
+
     private Vector3 moveVector = Vector3.zero;
-    
+    private bool isGrounded;
+    private float originalDrag;
+
     void Start()
     {
-        cc  = GetComponent<CharacterController>();
+        // cc  = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+        playerCollider = GetComponent<CapsuleCollider>();
+
+        // Don't let physics apply any weird torques that mess with aiming our character
+        rb.freezeRotation = true;
+
+        originalDrag = rb.drag;
     }
 
-    
-    void Update()
+    void FixedUpdate()
     {
-        if (cc.isGrounded)
+        // Check against all layers except Player
+        int layerMask = ~LayerMask.GetMask("Player");
+        // check a short capsule below the player to see if we're grounded
+        isGrounded = Physics.CheckCapsule(playerCollider.bounds.center,
+            new Vector3(playerCollider.bounds.center.x,
+                playerCollider.bounds.min.y - 0.01f,
+                playerCollider.bounds.center.z),
+            0.18f,
+            layerMask);
+
+        // Debug.Log("isGrounded: " + isGrounded.ToString());
+
+        moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+
+        moveVector = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0) * moveVector;
+
+        if (isGrounded)
         {
-            moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+            rb.velocity += moveVector * acceleration * Time.deltaTime;
+        }
+        else
+        {
+            // Don't accelerate at full speed in the air
+            rb.velocity += moveVector * acceleration * Time.deltaTime / 4.0f;
         }
 
-        moveVector.y -= Gravity * Time.deltaTime;
+        Vector3 translationalVelocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+        if (translationalVelocity.sqrMagnitude > MoveSpeed * MoveSpeed)
+        {
+            // evil hardcoded drag constant
+            translationalVelocity *= 0.75f;
+        }
+        Debug.Log(translationalVelocity.magnitude);
+        rb.velocity = new Vector3(translationalVelocity.x, rb.velocity.y, translationalVelocity.z);
 
-        moveVector = Quaternion.Euler(0, 45, 0) * moveVector;
+        if (
+            moveVector.sqrMagnitude < 0.5f && isGrounded
+            || translationalVelocity.sqrMagnitude > MoveSpeed * MoveSpeed
+        )
+        {
+            rb.drag = stoppingDrag;
+        }
+        else
+        {
+            rb.drag = originalDrag;
+        }
 
-        cc.Move(moveVector.normalized * MoveSpeed * Time.deltaTime);
+
+
+
+
+        // If we're falling, apply stronger gravity to mitigate the floaty feel
+        if (rb.velocity.y < 0.0f)
+        {
+            // * Note: Physics.gravity is taken to be negative, so we add it
+            rb.velocity += Physics.gravity * fallMultiplier * Time.fixedDeltaTime;
+        }
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Debug.Log("Jump!");
+            rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("Dash!");
+            rb.AddForce(model.transform.forward * dashStrength, ForceMode.Impulse);
+        }
 
         Turning();
 
@@ -46,10 +125,10 @@ public class PlayerMove : MonoBehaviour
 
     void Turning()
     {
-        Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit floorHit;
 
-        if(Physics.Raycast (camRay, out floorHit, 99999.9f, LayerMask.GetMask("Floor")))
+        if (Physics.Raycast(camRay, out floorHit, 99999.9f, LayerMask.GetMask("Floor")))
         {
             Vector3 playerToMouse = floorHit.point - transform.position;
 
