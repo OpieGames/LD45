@@ -69,7 +69,7 @@ public class PlayerMove : MonoBehaviour
             // evil hardcoded drag constant
             translationalVelocity *= 0.75f;
         }
-        Debug.Log(translationalVelocity.magnitude);
+        // Debug.Log(translationalVelocity.magnitude);
         rb.velocity = new Vector3(translationalVelocity.x, rb.velocity.y, translationalVelocity.z);
 
         if (
