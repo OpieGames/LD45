@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 350261931404183317}
   - component: {fileID: 4266094106567117175}
   - component: {fileID: 7364099051983393737}
-  - component: {fileID: 9066728304636918803}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -185,19 +184,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.148446, y: 1.193588, z: 1.1935871}
   m_Center: {x: 0, y: 0.952876, z: 0.0000005066395}
---- !u!114 &9066728304636918803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475761121629349819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec31f7e240dfca4ab48571f8b4e5a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DropType: 5
-  rotationSpeed: 240
-  bounceMagnitude: 0.07
-  bounceSpeed: 10

@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 350261931404183317}
   - component: {fileID: 4266094106567117175}
   - component: {fileID: 567484802447602794}
-  - component: {fileID: 1299140070063411759}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -185,19 +184,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.397839, y: 0.553637, z: 0.405625}
   m_Center: {x: -0.001216501, y: 0.72731054, z: -0.00006749481}
---- !u!114 &1299140070063411759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475761121629349819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec31f7e240dfca4ab48571f8b4e5a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DropType: 0
-  rotationSpeed: 122
-  bounceMagnitude: 0.1
-  bounceSpeed: 4
