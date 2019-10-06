@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Living : BaseObject
 {
+    [Header("Living")]
     public float StartingHealth;
     private float Health;
 
