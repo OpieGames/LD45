@@ -21,7 +21,7 @@ public class Living : BaseObject
         Health = StartingHealth;
         AudioSrc =  GetComponent<AudioSource>();
         idleSoundCurrent = UnityEngine.Random.Range(0.0f, 5.0f);
-        IdleSoundTimer += idleSoundCurrent;
+        IdleSoundTimer += UnityEngine.Random.Range(4.0f, 8.0f);;
     }
 
     private void Update()
