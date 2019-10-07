@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         {
             transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
         }
-        
+
         if (PlayerInv.Bread >= 1 && PlayerInv.Milk >= 5  && PlayerInv.Eggs >= 6) {
             SceneManager.LoadScene("Scenes/YOUWIN");
         }
