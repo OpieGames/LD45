@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
             attackRange/2.0f,
             attackRange/2.0f
         );
-        if (Physics.SphereCast(transform.position, 0.5f * attackRange, PlayerModel.transform.forward, out hit, attackRange, lm, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(transform.position, 0.8f * attackRange, PlayerModel.transform.forward, out hit, attackRange, lm, QueryTriggerInteraction.UseGlobal))
         // if (Physics.CheckBox(transform.position,boxHalfExtents,PlayerModel.transform.rotation,lm))
         {
             Debug.Log("HIT: " + hit.transform.name);
