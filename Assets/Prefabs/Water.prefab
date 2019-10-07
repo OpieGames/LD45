@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 350261931404183317}
   - component: {fileID: 4266094106567117175}
   - component: {fileID: 8184681895845253184}
+  - component: {fileID: 4555627906034505780}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -185,6 +186,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.558024, y: 0.624635, z: 0.577234}
   m_Center: {x: 0.031621, y: 0.69424045, z: 0}
+--- !u!114 &4555627906034505780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475761121629349819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec31f7e240dfca4ab48571f8b4e5a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropType: 2
+  rotationSpeed: 10
+  bounceMagnitude: 0.2
+  bounceSpeed: 5
 --- !u!1 &3906636101540866733
 GameObject:
   m_ObjectHideFlags: 0
