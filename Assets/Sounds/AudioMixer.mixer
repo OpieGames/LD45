@@ -100,7 +100,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Animals
+  m_Name: GROUP:Animals
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 39e0ec911bd58e742bae33ddf91e33a7
   m_Children:
@@ -121,7 +121,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: GROUP:Player
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 9d11076146f03d14c9d3ae57e3e96614
   m_Children:
@@ -237,11 +237,14 @@ AudioMixerSnapshotController:
   m_SnapshotID: 156527cce5aefcc49b96458bac664f03
   m_FloatValues:
     c2ce60c0e29fa6241b444feaead4cfbf: 0.041712154
-    0438fde223c6a8e46ba4b090ffecee8b: 2.850226
+    91c759315be9b864d97c41db4190a85a: -2.018035
+    0438fde223c6a8e46ba4b090ffecee8b: 2.090601
     dc543826e40977940bfdcf3aed73c870: -3.8468595
+    94a095271fb1ac24b801688c7e15b541: -2.018035
     03a0eef9d2a8c7240939cfbf11d10a89: -5.7224774
     653d003d6710ad644ac233d3472e3551: -3.8468575
     7a0202ae3308cf54b95eb2269fd512ac: -1.7612991
+    092d62ae591f7a34499a5f127f10e6b9: -0.39762527
   m_TransitionOverrides: {}
 --- !u!243 &263196999552299716
 AudioMixerGroupController:
