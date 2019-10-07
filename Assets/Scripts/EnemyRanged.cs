@@ -13,6 +13,7 @@ public class EnemyRanged : MonoBehaviour
     public float predictionFuzzFactor = 0.1f;
     public float predictionCorrectionCoefficient = 0.9f;
     public float predictionYOffset = 0.5f;
+    public AudioSource audioSource;
 
     private int playerMask;
     private GameObject playerObject;
@@ -110,6 +111,7 @@ public class EnemyRanged : MonoBehaviour
         GameObject shotObject = Instantiate(shotPrefab, shotOrigin.position, shotOrigin.rotation)
             as GameObject;
         EnemyShot shotComponent = shotObject.GetComponent<EnemyShot>();
+        audioSource.Play();
         shotComponent.shooter = this;
     }
 
