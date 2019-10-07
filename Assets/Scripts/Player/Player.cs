@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public float DefaultFood = 100.0f;
     public float MaxFood = 100.0f;
     public float InteractRadius = 1.25f;
+    public float attackRange = 1.4f;
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
     public PlayerInventory PlayerInv;
@@ -44,11 +45,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log(PlayerModel.transform.forward);
+            // Debug.Log(PlayerModel.transform.forward);
 
             LayerMask lm = LayerMask.GetMask("Living");
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, PlayerModel.transform.forward, out hit, CurrentWeapon.Range, lm))
+            Vector3 boxHalfExtents = new Vector3(
+                attackRange/2.0f,
+                attackRange/2.0f,
+                attackRange/2.0f
+            );
+            if (Physics.SphereCast(transform.position, 0.5f * attackRange, PlayerModel.transform.forward, out hit, attackRange, lm, QueryTriggerInteraction.UseGlobal))
+            // if (Physics.CheckBox(transform.position,boxHalfExtents,PlayerModel.transform.rotation,lm))
             {
                 Debug.Log("HIT: " + hit.transform.name);
                 Living living = hit.transform.GetComponent<Living>();
@@ -59,7 +66,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        
+
         if (Input.GetButtonDown("Use"))
         {
             Debug.Log("using");
