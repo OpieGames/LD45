@@ -9,10 +9,18 @@ public class Cow : MonoBehaviour
 
     Collider myCollider;
     bool hasDroppedMilk = false;
-    // Start is called before the first frame update
+
+    [Header("Sounds")]
+    public AudioSource AudioSrc;
+    public AudioClip IdleSound;
+    public float IdleSoundTimer = 12.0f;
+    private float idleSoundCurrent = 0.0f;
+
     void Start()
     {
         myCollider = GetComponent<BoxCollider>();
+        AudioSrc =  GetComponent<AudioSource>();
+        idleSoundCurrent = UnityEngine.Random.Range(0.0f, 3.0f);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -22,6 +30,19 @@ public class Cow : MonoBehaviour
             Player playerComponent = collision.gameObject.GetComponent<Player>();
             playerComponent.TakeDamage(collisionDamage);
         }
+    }
+
+    void Update()
+    {
+        if (idleSoundCurrent >= IdleSoundTimer)
+        {
+            AudioSrc.volume = UnityEngine.Random.Range(0.6f, 0.7f);
+            AudioSrc.pitch = UnityEngine.Random.Range(0.96f, 1.04f);
+            AudioSrc.PlayOneShot(IdleSound);
+            idleSoundCurrent = 0.0f;
+        }
+        
+        idleSoundCurrent += Time.deltaTime;
     }
 
     // Drop the milk prefab. This is called by the pen trigger volume when a cow enters it.
