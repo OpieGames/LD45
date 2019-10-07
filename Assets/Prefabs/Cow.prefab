@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8476581931993509337}
   m_Layer: 0
   m_Name: Cow
-  m_TagString: Untagged
+  m_TagString: Cow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,36 +69,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8994827655321764449}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Name
-      value: creature_cow
-      objectReference: {fileID: 0}
-    - target: {fileID: -6594825636728262484, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5595515219974367041, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5406855363900935758, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5128731755771447461, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -4591610602051843791, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
     - target: {fileID: -4216859302048453862, guid: d64e68c4d2c5901439341ccdfe8180e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,6 +124,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Name
+      value: creature_cow
+      objectReference: {fileID: 0}
+    - target: {fileID: -6594825636728262484, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5595515219974367041, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5406855363900935758, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5128731755771447461, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -4591610602051843791, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
     - target: {fileID: 8566348125238130782, guid: d64e68c4d2c5901439341ccdfe8180e2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
