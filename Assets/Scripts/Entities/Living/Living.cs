@@ -21,7 +21,7 @@ public class Living : BaseObject
         Health = StartingHealth;
         AudioSrc =  GetComponent<AudioSource>();
         idleSoundCurrent = UnityEngine.Random.Range(0.0f, 5.0f);
-        IdleSoundTimer += idleSoundCurrent;
+        IdleSoundTimer += UnityEngine.Random.Range(4.0f, 8.0f);;
     }
 
     private void Update()
@@ -49,6 +49,9 @@ public class Living : BaseObject
         {
             Health = 0.0f;
             Debug.Log(transform.name + " dead!");
+
+            Instantiate(DropPrefab, transform.position, transform.rotation);
+
             AudioSrc.Stop();
             AudioSrc.volume = UnityEngine.Random.Range(0.8f, 0.9f);
             AudioSrc.pitch = UnityEngine.Random.Range(0.95f, 1.05f);

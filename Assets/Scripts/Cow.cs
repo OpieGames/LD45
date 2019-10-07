@@ -21,7 +21,7 @@ public class Cow : MonoBehaviour
         myCollider = GetComponent<BoxCollider>();
         AudioSrc =  GetComponent<AudioSource>();
         idleSoundCurrent = UnityEngine.Random.Range(0.0f, 5.0f);
-        IdleSoundTimer += idleSoundCurrent;
+        IdleSoundTimer += UnityEngine.Random.Range(4.0f, 8.0f);;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -30,6 +30,7 @@ public class Cow : MonoBehaviour
         {
             Player playerComponent = collision.gameObject.GetComponent<Player>();
             playerComponent.TakeDamage(collisionDamage);
+
         }
     }
 
