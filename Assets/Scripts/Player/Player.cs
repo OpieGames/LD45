@@ -21,18 +21,22 @@ public class Player : MonoBehaviour
     public float MaxFood = 100.0f;
     public float InteractRadius = 1.25f;
     public float attackRange = 1.4f;
+    public float attackCooldown = 1.5f;
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
     public PlayerInventory PlayerInv;
 
     private float Health;
+    private float currentAttackCooldown = 0;
 
     private GameObject PlayerModel;
+    private Animator animator;
 
     void Start()
     {
         Health = DefaultHealth;
         PlayerModel = GetComponent<PlayerMove>().model;
+        animator = GetComponent<Animator>();
         SetWeapon(DefaultWeapon);
 
         if (CurrentWeapon == null)
@@ -43,27 +47,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (currentAttackCooldown > 0.0f) {
+            currentAttackCooldown -= Time.deltaTime;
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             // Debug.Log(PlayerModel.transform.forward);
-
-            LayerMask lm = LayerMask.GetMask("Living");
-            RaycastHit hit;
-            Vector3 boxHalfExtents = new Vector3(
-                attackRange/2.0f,
-                attackRange/2.0f,
-                attackRange/2.0f
-            );
-            if (Physics.SphereCast(transform.position, 0.5f * attackRange, PlayerModel.transform.forward, out hit, attackRange, lm, QueryTriggerInteraction.UseGlobal))
-            // if (Physics.CheckBox(transform.position,boxHalfExtents,PlayerModel.transform.rotation,lm))
+            if (currentAttackCooldown <= 0.0f)
             {
-                Debug.Log("HIT: " + hit.transform.name);
-                Living living = hit.transform.GetComponent<Living>();
-                if (living)
-                {
-                    Debug.Log("Attacked living: " + living.NiceName);
-                    living.TakeDamage(CurrentWeapon.Damage);
-                }
+                currentAttackCooldown = attackCooldown;
+                animator.SetTrigger("attack");
+                
             }
         }
 
@@ -142,5 +136,26 @@ public class Player : MonoBehaviour
         ourpos.y = 1.0f;
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(ourpos, InteractRadius);
+    }
+
+    public void DoAttack() {
+        LayerMask lm = LayerMask.GetMask("Living");
+        RaycastHit hit;
+        Vector3 boxHalfExtents = new Vector3(
+            attackRange/2.0f,
+            attackRange/2.0f,
+            attackRange/2.0f
+        );
+        if (Physics.SphereCast(transform.position, 0.5f * attackRange, PlayerModel.transform.forward, out hit, attackRange, lm, QueryTriggerInteraction.UseGlobal))
+        // if (Physics.CheckBox(transform.position,boxHalfExtents,PlayerModel.transform.rotation,lm))
+        {
+            Debug.Log("HIT: " + hit.transform.name);
+            Living living = hit.transform.GetComponent<Living>();
+            if (living)
+            {
+                Debug.Log("Attacked living: " + living.NiceName);
+                living.TakeDamage(CurrentWeapon.Damage);
+            }
+        }
     }
 }
