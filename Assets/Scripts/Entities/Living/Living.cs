@@ -49,6 +49,9 @@ public class Living : BaseObject
         {
             Health = 0.0f;
             Debug.Log(transform.name + " dead!");
+
+            Instantiate(DropPrefab, transform.position, transform.rotation);
+
             AudioSrc.Stop();
             AudioSrc.volume = UnityEngine.Random.Range(0.8f, 0.9f);
             AudioSrc.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
