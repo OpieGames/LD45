@@ -65,10 +65,6 @@ public class Player : MonoBehaviour
             {
                 currentAttackCooldown = attackCooldown;
                 animator.SetTrigger("attack");
-                PunchSrc.volume = UnityEngine.Random.Range(0.7f, 0.8f);
-                PunchSrc.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
-                PunchSrc.PlayDelayed(0.1f);
-                
             }
         }
 
@@ -197,6 +193,9 @@ public class Player : MonoBehaviour
                 Debug.Log("Attacked living: " + living.NiceName);
                 living.TakeDamage(CurrentWeapon.Damage);
             }
+            PunchSrc.volume = UnityEngine.Random.Range(0.7f, 0.75f);
+            PunchSrc.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
+            PunchSrc.Play();
         }
     }
 }
