@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -93,6 +94,18 @@ public class Player : MonoBehaviour
                     Debug.Log("Found object with Interactable tag but no Item class: " + transform.name);
                 }
             }
+        }
+
+        if (PlayerInv.Bread >= 1 && PlayerInv.Milk >= 5  && PlayerInv.Eggs >= 6) {
+            SceneManager.LoadScene("Scenes/YOUWIN");
+        }
+
+        if (Health <= 0) {
+            SceneManager.LoadScene("Scenes/YOULOSE");
+        }
+
+        if (Input.GetButton("CloseGame")) {
+            Application.Quit();
         }
     }
 
