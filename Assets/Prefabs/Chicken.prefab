@@ -84,9 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NiceName: 
-  DropPrefab: {fileID: 0}
-  DropAmount: 0
-  StartingHealth: 0
+  DropPrefab: {fileID: 6125302246270277601, guid: 9df40be96e87e5c4fa19ede6a57ef0ec,
+    type: 3}
+  DropAmount: 1
+  StartingHealth: 1
   AudioSrc: {fileID: 0}
   IdleSound: {fileID: 8300000, guid: 196453f1b28b0a740b22b7db5b8f225f, type: 3}
   DamageSound: {fileID: 8300000, guid: 202bafa9b83a0a74cbb88954386c75de, type: 3}
