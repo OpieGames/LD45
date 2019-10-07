@@ -94,6 +94,11 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetButtonDown("Respawn"))
+        {
+            transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+        }
     }
 
     public void PickedupItem()
