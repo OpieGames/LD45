@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
                 {
                     Debug.Log("interacted: " + col.GetComponent<Item>().NiceName);
                     col.GetComponent<Item>().Interact(this);
+                    return;
                 }
                 else
                 {
