@@ -11,11 +11,11 @@ public class Oven : Item
         if (
         !objectiveCompleted &&
         player.PlayerInv.Water > 0 &&
-        player.PlayerInv.Flour >= 6
+        player.PlayerInv.Flour >= 4
         )
         {
             player.PlayerInv.Water-=1;
-            player.PlayerInv.Flour-=6;
+            player.PlayerInv.Flour-=4;
             objectiveCompleted=true;
             GameObject.Instantiate(DropPrefab, transform.position - transform.forward, transform.rotation);
         }

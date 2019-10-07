@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public float MaxFood = 100.0f;
     public float InteractRadius = 1.25f;
     public float attackRange = 1.4f;
-    public float attackCooldown = 1.5f;
+    public float attackCooldown = 0.9f;
     public WeaponData CurrentWeapon;
     public WeaponData DefaultWeapon;
     public PlayerInventory PlayerInv;
