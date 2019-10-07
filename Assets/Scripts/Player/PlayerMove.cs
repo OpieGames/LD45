@@ -30,8 +30,10 @@ public class PlayerMove : MonoBehaviour
 
     //SOUNDS
     [Header("Sounds")]
-    public AudioClip[] FootstepSounds;
+    public AudioSource JumpSrc;
+    public AudioSource DashSrc;
     public AudioSource FootstepSrc;
+    public AudioClip[] FootstepSounds;
     public float AudioStepTime = 1.0f;
     private float stepTimer = 0.0f;
 
@@ -132,6 +134,9 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.Log("Jump!");
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+            JumpSrc.pitch = 0.8f;
+            JumpSrc.volume = 0.7f;
+            JumpSrc.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && (currentDashCooldown <= 0.0f))
@@ -139,6 +144,9 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Dash!");
             rb.AddForce(model.transform.forward * dashStrength, ForceMode.Impulse);
             currentDashCooldown = dashCooldown;
+            DashSrc.pitch = 1.0f;
+            DashSrc.volume = 0.7f;
+            DashSrc.Play();
         }
 
         Turning();

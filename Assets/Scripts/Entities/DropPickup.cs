@@ -56,6 +56,8 @@ public class DropPickup : MonoBehaviour
                     break;
             }
 
+            ply.PickedupItem();
+
             Debug.Log("Picked up " + DropType.ToString());
             Destroy(gameObject);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public struct PlayerInventory
 {
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     [Header("Sounds")]
+    public AudioSource PickupSrc;
     public AudioSource PunchSrc;
     public AudioClip[] HurtSounds;
     public AudioSource HurtSrc;
@@ -92,6 +94,12 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PickedupItem()
+    {
+        PickupSrc.volume = 0.8f;
+        PickupSrc.Play();
     }
 
     public void SetWeapon(WeaponData newWeapon)
