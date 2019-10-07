@@ -14,7 +14,10 @@ public class Oven : Item
         player.PlayerInv.Flour >= 6
         )
         {
-            GameObject.Instantiate(DropPrefab, transform.position + transform.forward, transform.rotation);
+            player.PlayerInv.Water-=1;
+            player.PlayerInv.Flour-=6;
+            objectiveCompleted=true;
+            GameObject.Instantiate(DropPrefab, transform.position - transform.forward, transform.rotation);
         }
     }
 }

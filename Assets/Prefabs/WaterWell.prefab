@@ -40,12 +40,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380617806291076286}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.33
   m_Height: 3.58
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 1.02, z: -0.00000008940697}
 --- !u!114 &380617806291076281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25673bf9d9ca3024dafe78fed5057115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NiceName: 
+  NiceName: Water Well
   DropPrefab: {fileID: 6774089953109544065, guid: 373dee73a06d54c41a41fa1aecd1e188,
     type: 3}
   DropAmount: 1
@@ -71,7 +71,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380617806428810647}
-  - component: {fileID: 3520259013892766746}
   m_Layer: 12
   m_Name: WaterWell
   m_TagString: Untagged
@@ -97,22 +96,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3520259013892766746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380617806428810649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25673bf9d9ca3024dafe78fed5057115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NiceName: Water Well
-  DropPrefab: {fileID: 6774089953109544065, guid: 373dee73a06d54c41a41fa1aecd1e188,
-    type: 3}
-  DropAmount: 1
 --- !u!1 &1990516659996860172
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +184,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1990516659996860172}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.68
   m_Height: 11.85
   m_Direction: 1
