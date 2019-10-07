@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Well : Item
+public class WaterWell : Item
 {
     bool objectiveCompleted = false;
     public override void Interact(Player player)
