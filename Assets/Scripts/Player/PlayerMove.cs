@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,12 +28,20 @@ public class PlayerMove : MonoBehaviour
     private float originalDrag;
     private float currentDashCooldown = 0.0f;
 
+    //SOUNDS
+    [Header("Sounds")]
+    public AudioClip[] FootstepSounds;
+    public AudioSource AudioSrc;
+    public float AudioStepTime = 1.0f;
+    private float stepTimer = 0.0f;
+
     void Start()
     {
         // cc  = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider>();
+        AudioSrc = GetComponent<AudioSource>();
 
         // Don't let physics apply any weird torques that mess with aiming our character
         rb.freezeRotation = true;
@@ -101,8 +110,18 @@ public class PlayerMove : MonoBehaviour
             // * Note: Physics.gravity is taken to be negative, so we add it
             rb.velocity += Physics.gravity * fallMultiplier * Time.fixedDeltaTime;
         }
-    }
 
+        if (isGrounded && rb.velocity.magnitude > 2f)
+        {
+            StepSounds();
+        }
+        else
+        {
+            StartCoroutine(AudioFader.FadeOut(AudioSrc, 2.0f));
+        }
+
+        stepTimer += Time.deltaTime;
+    }
 
     void Update()
     {
@@ -149,6 +168,19 @@ public class PlayerMove : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
             model.transform.rotation = newRotation;
+        }
+    }
+
+    private void StepSounds()
+    {
+        if (stepTimer >= AudioStepTime)
+        {
+            int index = UnityEngine.Random.Range(0, FootstepSounds.Length);
+            AudioSrc.volume = UnityEngine.Random.Range(0.7f, 0.85f);
+            AudioSrc.pitch = UnityEngine.Random.Range(0.88f, 1.12f);
+            AudioSrc.PlayOneShot(FootstepSounds[index]);
+            
+            stepTimer = 0.0f;
         }
     }
 }
