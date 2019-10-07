@@ -92,3 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropType: 0
+  rotationSpeed: 10
+  bounceMagnitude: 0.2
+  bounceSpeed: 5
+  PickupSrc: {fileID: 0}
