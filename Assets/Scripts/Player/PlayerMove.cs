@@ -31,7 +31,7 @@ public class PlayerMove : MonoBehaviour
     //SOUNDS
     [Header("Sounds")]
     public AudioClip[] FootstepSounds;
-    public AudioSource AudioSrc;
+    public AudioSource FootstepSrc;
     public float AudioStepTime = 1.0f;
     private float stepTimer = 0.0f;
 
@@ -41,7 +41,6 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider>();
-        AudioSrc = GetComponent<AudioSource>();
 
         // Don't let physics apply any weird torques that mess with aiming our character
         rb.freezeRotation = true;
@@ -117,7 +116,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            StartCoroutine(AudioFader.FadeOut(AudioSrc, 2.0f));
+            StartCoroutine(AudioFader.FadeOut(FootstepSrc, 2.0f));
         }
 
         stepTimer += Time.deltaTime;
@@ -177,9 +176,9 @@ public class PlayerMove : MonoBehaviour
         if (stepTimer >= AudioStepTime)
         {
             int index = UnityEngine.Random.Range(0, FootstepSounds.Length);
-            AudioSrc.volume = UnityEngine.Random.Range(0.7f, 0.85f);
-            AudioSrc.pitch = UnityEngine.Random.Range(0.88f, 1.12f);
-            AudioSrc.PlayOneShot(FootstepSounds[index]);
+            FootstepSrc.volume = UnityEngine.Random.Range(0.7f, 0.85f);
+            FootstepSrc.pitch = UnityEngine.Random.Range(0.88f, 1.12f);
+            FootstepSrc.PlayOneShot(FootstepSounds[index]);
 
             stepTimer = 0.0f;
         }

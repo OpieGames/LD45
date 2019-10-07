@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-7262752700570544193
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 17474c9abd227e144af800a973cca579
+  m_EffectName: Attenuation
+  m_MixLevel: 819637b4a16c47d4b91e1daecae45424
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-5460632302572324196
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -60,6 +74,7 @@ AudioMixerGroupController:
   m_GroupID: 9d11076146f03d14c9d3ae57e3e96614
   m_Children:
   - {fileID: 263196999552299716}
+  - {fileID: 3665004103852787100}
   - {fileID: 3071822823533095349}
   m_Volume: c2ce60c0e29fa6241b444feaead4cfbf
   m_Pitch: 16ec83d1d5c8c0e4a88f42d2ede40994
@@ -114,6 +129,7 @@ AudioMixerController:
     - 11a35ca445f567549871a2fdc0d43bd0
     - 2922a71be400299408fcf652e62ba578
     - bbf47d0b70662f24093a15ae17e1409b
+    - 4e9adedb92fb94c4786bc023bd2ff7c6
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -162,8 +178,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 156527cce5aefcc49b96458bac664f03
   m_FloatValues:
-    c2ce60c0e29fa6241b444feaead4cfbf: -3.8468604
+    c2ce60c0e29fa6241b444feaead4cfbf: 0.041712154
+    0438fde223c6a8e46ba4b090ffecee8b: 2.850226
+    dc543826e40977940bfdcf3aed73c870: -3.8468595
     03a0eef9d2a8c7240939cfbf11d10a89: -5.7224774
+    653d003d6710ad644ac233d3472e3551: -3.8468575
     7a0202ae3308cf54b95eb2269fd512ac: -1.7612991
   m_TransitionOverrides: {}
 --- !u!243 &263196999552299716
@@ -237,6 +256,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &3665004103852787100
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Punch
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4e9adedb92fb94c4786bc023bd2ff7c6
+  m_Children: []
+  m_Volume: 653d003d6710ad644ac233d3472e3551
+  m_Pitch: 4bf2e3c3be6a1bb4baf17ab3246ed6af
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7262752700570544193}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &4115576795155674341
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

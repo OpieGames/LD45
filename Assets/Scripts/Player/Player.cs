@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
     private GameObject PlayerModel;
     private Animator animator;
 
+    [Header("Sounds")]
+    public AudioSource PunchSrc;
+    public AudioClip[] HurtSounds;
+    public AudioSource HurtSrc;
+
     void Start()
     {
         Health = DefaultHealth;
@@ -57,6 +62,9 @@ public class Player : MonoBehaviour
             {
                 currentAttackCooldown = attackCooldown;
                 animator.SetTrigger("attack");
+                PunchSrc.volume = UnityEngine.Random.Range(0.7f, 0.8f);
+                PunchSrc.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
+                PunchSrc.PlayDelayed(0.1f);
                 
             }
         }
@@ -106,6 +114,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player damaged for: " + damage);
         float resulthp = Health - damage;
+
+        int index = UnityEngine.Random.Range(0, HurtSounds.Length);
+        HurtSrc.volume = UnityEngine.Random.Range(0.7f, 0.85f);
+        HurtSrc.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        HurtSrc.PlayOneShot(HurtSounds[index]);
+
         if (resulthp <= 0.0f)
         {
             Health = 0.0f;
