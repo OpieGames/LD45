@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerHUD : MonoBehaviour
 {
     public TextMeshProUGUI HealthUI;
+    public TextMeshProUGUI PromptUI;
 
     [Header("Player Inventory Text")]
     public TextMeshProUGUI EggsValue;
@@ -19,6 +20,7 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         PlayerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        ClearSignPrompt();
     }
 
     private void OnGUI()
@@ -31,5 +33,20 @@ public class PlayerHUD : MonoBehaviour
         FlourValue.text = PlayerRef.PlayerInv.Flour.ToString();
         BreadValue.text = PlayerRef.PlayerInv.Bread.ToString();
         CoinsValue.text = PlayerRef.PlayerInv.Coins.ToString();
+    }
+
+    public void DisplaySignPrompt(string prompt)
+    {
+        PromptUI.text = prompt;
+        // Hacky way to display a prompt for a reasonable amount of read time
+        // Assume read speed of 120 words/min, i.e. 0.5s per word.
+        // Assume average word length of 5 characters.
+        float promptLingerSeconds = 0.5f * prompt.Length / 5.0f;
+        Invoke("ClearSignPrompt", promptLingerSeconds);
+    }
+
+    public void ClearSignPrompt()
+    {
+        PromptUI.text = "";
     }
 }
