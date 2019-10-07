@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8476581931993509337}
-  - component: {fileID: 815570148}
   - component: {fileID: 815570146}
   - component: {fileID: 815570149}
   - component: {fileID: 815570150}
   - component: {fileID: 7986589129501746597}
+  - component: {fileID: 5920236621334945767}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &815570148
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5671169322519163758}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.45, z: 3.05}
-  m_Center: {x: 0, y: 0.85, z: -0.55}
 --- !u!195 &815570146
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -199,6 +186,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5920236621334945767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671169322519163758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.14, y: 1.33, z: 2.46}
+  m_Center: {x: 0, y: 0.9, z: 0.42}
 --- !u!1 &8916944879069265392
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8994827655321764449}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Name
+      value: creature_cow
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d64e68c4d2c5901439341ccdfe8180e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,31 +297,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Name
-      value: creature_cow
-      objectReference: {fileID: 0}
-    - target: {fileID: -6594825636728262484, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5595515219974367041, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5406855363900935758, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
-    - target: {fileID: -5128731755771447461, guid: d64e68c4d2c5901439341ccdfe8180e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
     - target: {fileID: -4591610602051843791, guid: d64e68c4d2c5901439341ccdfe8180e2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -328,6 +308,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
     - target: {fileID: -6102235838907684513, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -6594825636728262484, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5128731755771447461, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5595515219974367041, guid: d64e68c4d2c5901439341ccdfe8180e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794e4f06e9855504d8fe983f1c92254a, type: 2}
+    - target: {fileID: -5406855363900935758, guid: d64e68c4d2c5901439341ccdfe8180e2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
