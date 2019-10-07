@@ -62,7 +62,7 @@ public class Avoider : MonoBehaviour
 
     void AvoidPlayer()
     {
-        Debug.Log("Run away!!!");
+        // Debug.Log("Run away!!!");
         Vector3 awayFromPlayer = transform.position - playerTransform.position;
         agent.SetDestination(transform.position + awayFromPlayer * agent.speed);
     }
@@ -80,7 +80,7 @@ public class Avoider : MonoBehaviour
             NavMeshHit navMeshHit;
             NavMesh.SamplePosition(randomDirection, out navMeshHit, distance, NavMesh.AllAreas);
             agent.SetDestination(navMeshHit.position);
-            Debug.Log("Idling. New destination: " + agent.destination.ToString());
+            // Debug.Log("Idling. New destination: " + agent.destination.ToString());
             yield return new WaitForSeconds(wanderDelaySeconds);
         }
     }

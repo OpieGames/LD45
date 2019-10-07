@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-       
+
         // Check against all layers except Player
         int layerMask = ~LayerMask.GetMask("Player");
         // check a short capsule below the player to see if we're grounded
@@ -128,7 +128,7 @@ public class PlayerMove : MonoBehaviour
         if (currentDashCooldown > 0.0f) {
             currentDashCooldown -= Time.deltaTime;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Debug.Log("Jump!");
@@ -156,8 +156,6 @@ public class PlayerMove : MonoBehaviour
 
     void Turning()
     {
-    if (isGrounded)
-    {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit floorHit;
 
@@ -171,8 +169,8 @@ public class PlayerMove : MonoBehaviour
 
                 model.transform.rotation = newRotation;
             }
-        }
     }
+
 
     private void StepSounds()
     {
@@ -182,7 +180,7 @@ public class PlayerMove : MonoBehaviour
             AudioSrc.volume = UnityEngine.Random.Range(0.7f, 0.85f);
             AudioSrc.pitch = UnityEngine.Random.Range(0.88f, 1.12f);
             AudioSrc.PlayOneShot(FootstepSounds[index]);
-            
+
             stepTimer = 0.0f;
         }
     }

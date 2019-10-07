@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("using");
             Vector3 ourpos = transform.position;
-            ourpos.y = 1.0f;
+            ourpos.y += 1.0f;
             LayerMask mask = LayerMask.GetMask("Interactable");
             //TODO: make this a trigger on the player so we can highlight interacatables nearby?
             Collider[] hitCols = Physics.OverlapSphere(ourpos, InteractRadius, mask);
