@@ -32676,7 +32676,7 @@ PrefabInstance:
     - target: {fileID: 8476581931993509337, guid: 186ae6723805d7c4d9169e0ee100ec8e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 160
+      value: 162
       objectReference: {fileID: 0}
     - target: {fileID: 8476581931993509337, guid: 186ae6723805d7c4d9169e0ee100ec8e,
         type: 3}
@@ -34479,7 +34479,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 159
+  m_RootOrder: 161
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1383663642
 Mesh:
@@ -35357,7 +35357,7 @@ PrefabInstance:
     - target: {fileID: 8476581931993509337, guid: 186ae6723805d7c4d9169e0ee100ec8e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 161
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 8476581931993509337, guid: 186ae6723805d7c4d9169e0ee100ec8e,
         type: 3}
@@ -41999,7 +41999,7 @@ PrefabInstance:
     - target: {fileID: 2106886055803959173, guid: 9ffa36fdf0fad804a9e585631b3a9990,
         type: 3}
       propertyPath: m_RootOrder
-      value: 159
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2106886055803959173, guid: 9ffa36fdf0fad804a9e585631b3a9990,
         type: 3}
@@ -45173,7 +45173,7 @@ PrefabInstance:
       value: 'Oh no, you have no groceries!
 
         Looks like you better get out there and find some. You''ll need to find a
-        way to make some Bread, get 5 Bottles of Milk, and 6 Eggs. ''WASD'' to move,
+        way to make some Bread, get 3 Bottles of Milk, and 6 Eggs. ''WASD'' to move,
         ''F'' to interact, ''QE'' to rotate camera, ''SHIFT'' to dash, ''SPACE'' to
         jump and ''LEFTCLICK'' to attack.'
       objectReference: {fileID: 0}
@@ -49755,6 +49755,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5494066250929374465, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -50203,26 +50223,6 @@ PrefabInstance:
     - target: {fileID: 6428652345726438396, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938857330211111373, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1097903061467479412, guid: 2ca57bdb7f15b3043b5f88f3faf51b34,
@@ -54272,7 +54272,7 @@ Transform:
   m_LocalScale: {x: 373.4057, y: 40, z: 378.0732}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 158
+  m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2041375119
 PrefabInstance:
