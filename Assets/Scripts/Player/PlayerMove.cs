@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     // CharacterController cc;
     Rigidbody rb;
     Collider playerCollider;
+    Animator animator;
 
     public GameObject model;
 
@@ -30,6 +31,7 @@ public class PlayerMove : MonoBehaviour
     {
         // cc  = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider>();
 
         // Don't let physics apply any weird torques that mess with aiming our character
@@ -51,7 +53,7 @@ public class PlayerMove : MonoBehaviour
                 playerCollider.bounds.center.z),
             0.18f,
             layerMask);
-
+        animator.SetBool("isGrounded", isGrounded);
         // Debug.Log("isGrounded: " + isGrounded.ToString());
 
         moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
