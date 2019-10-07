@@ -9,11 +9,17 @@ public class PlayerHUD : MonoBehaviour
     public TextMeshProUGUI PromptUI;
 
     [Header("Player Inventory Text")]
+    public GameObject EggsGroup;
     public TextMeshProUGUI EggsValue;
+    public GameObject MilkGroup;
     public TextMeshProUGUI MilkValue;
+    public GameObject WaterGroup;
     public TextMeshProUGUI WaterValue;
+    public GameObject FlourGroup;
     public TextMeshProUGUI FlourValue;
+    public GameObject BreadGroup;
     public TextMeshProUGUI BreadValue;
+    public GameObject CoinsGroup;
     public TextMeshProUGUI CoinsValue;
 
     private Player PlayerRef;
@@ -21,18 +27,33 @@ public class PlayerHUD : MonoBehaviour
     {
         PlayerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         ClearSignPrompt();
+        ClearInventoryList();
     }
 
     private void OnGUI()
     {
         HealthUI.text = PlayerRef.GetHealth().ToString();
+        PlayerInventory inv = PlayerRef.PlayerInv;
 
-        EggsValue.text = PlayerRef.PlayerInv.Eggs.ToString();
-        MilkValue.text = PlayerRef.PlayerInv.Milk.ToString();
-        WaterValue.text = PlayerRef.PlayerInv.Water.ToString();
-        FlourValue.text = PlayerRef.PlayerInv.Flour.ToString();
-        BreadValue.text = PlayerRef.PlayerInv.Bread.ToString();
-        CoinsValue.text = PlayerRef.PlayerInv.Coins.ToString();
+        if (inv.Eggs > 0)
+            EggsGroup.SetActive(true);
+        if (inv.Milk > 0)
+            MilkGroup.SetActive(true);
+        if (inv.Water > 0)
+            WaterGroup.SetActive(true);
+        if (inv.Flour > 0)
+            FlourGroup.SetActive(true);
+        if (inv.Bread > 0)
+            BreadGroup.SetActive(true);
+        if (inv.Coins > 0)
+            CoinsGroup.SetActive(true);
+
+        EggsValue.text = inv.Eggs.ToString();
+        MilkValue.text = inv.Milk.ToString();
+        WaterValue.text = inv.Water.ToString();
+        FlourValue.text = inv.Flour.ToString();
+        BreadValue.text = inv.Bread.ToString();
+        CoinsValue.text = inv.Coins.ToString();
     }
 
     public void DisplaySignPrompt(string prompt)
@@ -48,5 +69,15 @@ public class PlayerHUD : MonoBehaviour
     public void ClearSignPrompt()
     {
         PromptUI.text = "";
+    }
+
+    public void ClearInventoryList()
+    {
+        EggsGroup.SetActive(false);
+        MilkGroup.SetActive(false);
+        WaterGroup.SetActive(false);
+        FlourGroup.SetActive(false);
+        BreadGroup.SetActive(false);
+        CoinsGroup.SetActive(false);
     }
 }

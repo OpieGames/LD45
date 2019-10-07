@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 1050, y: 50}
+  m_AnchoredPosition: {x: 0, y: 187}
+  m_SizeDelta: {x: 800, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &120264777
 CanvasRenderer:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1331,11 +1331,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 3612500515287682855}
   PromptUI: {fileID: 120264776}
+  EggsGroup: {fileID: 5607124769610620318}
   EggsValue: {fileID: 5494066250929374465}
+  MilkGroup: {fileID: 5533975938335185819}
   MilkValue: {fileID: 1784531891677890016}
+  WaterGroup: {fileID: 432375914741152220}
   WaterValue: {fileID: 8637312271579234498}
+  FlourGroup: {fileID: 2418209035425803481}
   FlourValue: {fileID: 4290467866976849880}
+  BreadGroup: {fileID: 5562522257309271920}
   BreadValue: {fileID: 4392749384713345840}
+  CoinsGroup: {fileID: 6773057136870361715}
   CoinsValue: {fileID: 4380625323606898968}
 --- !u!1 &2418209035425803481
 GameObject:

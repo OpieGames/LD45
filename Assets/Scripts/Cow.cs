@@ -20,7 +20,8 @@ public class Cow : MonoBehaviour
     {
         myCollider = GetComponent<BoxCollider>();
         AudioSrc =  GetComponent<AudioSource>();
-        idleSoundCurrent = UnityEngine.Random.Range(0.0f, 3.0f);
+        idleSoundCurrent = UnityEngine.Random.Range(0.0f, 5.0f);
+        IdleSoundTimer += idleSoundCurrent;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -36,7 +37,7 @@ public class Cow : MonoBehaviour
     {
         if (idleSoundCurrent >= IdleSoundTimer)
         {
-            AudioSrc.volume = UnityEngine.Random.Range(0.6f, 0.7f);
+            AudioSrc.volume = UnityEngine.Random.Range(0.4f, 0.5f);
             AudioSrc.pitch = UnityEngine.Random.Range(0.96f, 1.04f);
             AudioSrc.PlayOneShot(IdleSound);
             idleSoundCurrent = 0.0f;
