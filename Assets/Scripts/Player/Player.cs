@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -95,9 +96,22 @@ public class Player : MonoBehaviour
             }
         }
 
+<<<<<<< HEAD
         if (Input.GetButtonDown("Respawn"))
         {
             transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+=======
+        if (PlayerInv.Bread >= 1 && PlayerInv.Milk >= 5  && PlayerInv.Eggs >= 6) {
+            SceneManager.LoadScene("Scenes/YOUWIN");
+        }
+
+        if (Health <= 0) {
+            SceneManager.LoadScene("Scenes/YOULOSE");
+        }
+
+        if (Input.GetButton("CloseGame")) {
+            Application.Quit();
+>>>>>>> c3aee1b5535ab37684c7c40528daaf1874af720a
         }
     }
 
